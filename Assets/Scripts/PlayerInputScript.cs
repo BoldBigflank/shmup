@@ -2,9 +2,10 @@ using UnityEngine;
 using System.Collections;
 
 public class PlayerInputScript : MonoBehaviour {
-	float baseSpeed = 7.0F;
+	public float baseSpeed = 7.0F;
 	float inputDeadSquare = 0.13F * 0.13F;
 	bool isFiring;
+	Vector2 newPos;
 	
 	void Start () {
 	
@@ -24,25 +25,34 @@ public class PlayerInputScript : MonoBehaviour {
 	}
 	
 	void OnGUI(){
-		GUI.Label(new Rect(0.0F, 0.0F, 100.0F, 100.0F), Input.GetAxis ("Player1_Fire").ToString());
+		GUI.Label(new Rect(0.0F, 0.0F, 100.0F, 100.0F), newPos.ToString());
 		GUI.Label(new Rect(0.0F, 100.0F, 100.0F, 100.0F), Input.GetAxis ("Player1_AimY").ToString());
 	}
 		
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		
 		// Movement
 		float xAxis = Input.GetAxis ("Player1_MoveX");
 		float yAxis = Input.GetAxis ("Player1_MoveY");
-		Vector3 direction = Vector3.zero;
-		if(xAxis * xAxis + yAxis * yAxis > inputDeadSquare){
-			direction.x += xAxis * baseSpeed * Time.deltaTime;
-			direction.y += yAxis * baseSpeed * Time.deltaTime;
-			float playerAngle = Vector3.Angle(Vector3.right, direction);
-			if( direction.y < 0.0F ) playerAngle = 360.0F - playerAngle;
-			transform.rotation = Quaternion.AngleAxis(playerAngle, Vector3.forward);
-		}
-		GetComponent<CharacterController>().Move(direction);
+		Vector2 direction = Vector2.zero;
+		
+		direction.x += xAxis * baseSpeed;
+		direction.y += yAxis * baseSpeed;
+		float playerAngle = Vector3.Angle(Vector3.right, direction);
+		if( direction.y < 0.0F ) playerAngle = 360.0F - playerAngle;
+		rigidbody2D.MoveRotation(playerAngle);
+//		transform.rotation = Quaternion.AngleAxis(playerAngle, Vector3.forward);
+	
+		rigidbody2D.MovePosition( rigidbody2D.position + direction * Time.deltaTime );
+		//if (c != CollisionFlags.None) {
+	//		Debug.Log("Collided");
+	//	}
+		// Clamp the player to the bounds of the screen
+//		Vector3 pos = transform.position;
+//		pos.x = Mathf.Clamp(pos.x, -5.0F, 5.0F);
+//		pos.y = Mathf.Clamp(pos.y, -5.0F, 5.0F);
+//		transform.position = pos;
 		
 		// Aiming
 		float playerAimX = Input.GetAxis("Player1_AimX");
@@ -50,7 +60,7 @@ public class PlayerInputScript : MonoBehaviour {
 		Vector3 aimAngleVector = new Vector3(playerAimX, playerAimY, 0.0F);
 		float aimAngle = Vector3.Angle(Vector3.right, aimAngleVector);
 		if( aimAngleVector.y < 0.0F ) aimAngle = 360.0F - aimAngle;
-		if(aimAngleVector.magnitude > 0.0F)transform.rotation = Quaternion.AngleAxis(aimAngle, Vector3.forward);
+		if(aimAngleVector.magnitude > 0.0F)rigidbody2D.MoveRotation(aimAngle);
 		
 		// Firing
 		isFiring = (Input.GetAxis ("Player1_Fire") > 0.1F);
