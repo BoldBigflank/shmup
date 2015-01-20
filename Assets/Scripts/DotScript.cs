@@ -11,6 +11,7 @@ public class DotScript : MonoBehaviour {
 	
 	void OnEnable(){
 		Invoke ("Destroy", 2.0F);
+		rigidbody2D.AddRelativeForce(Vector2.up * speed, ForceMode2D.Impulse);
 	}
 	
 	void Destroy(){
@@ -23,11 +24,19 @@ public class DotScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.Translate(0, speed*Time.deltaTime, 0);
+//		transform.Translate(0, speed*Time.deltaTime, 0);
 	}
 	
-	void onCollision(Collider other){
+	void OnTriggerEnter2D(Collider2D other){
+		Debug.Log ("onTrigger");
+	}
+	
+	void OnCollisionEnter2D(Collision2D other){
+		Debug.Log ("onCollision");
 		if(other.gameObject == source) return;
+		
+//		CancelInvoke();
+//		gameObject.SetActive(false);
 		
 	}
 }
