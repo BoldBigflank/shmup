@@ -35,8 +35,8 @@ public class DotScript : MonoBehaviour {
 //		Debug.Log ("onCollision");
 		if(other.gameObject == source) return;
 		
-//		CancelInvoke();
-//		gameObject.SetActive(false);
+		CancelInvoke();
+		gameObject.SetActive(false);
 		
 	}
 }

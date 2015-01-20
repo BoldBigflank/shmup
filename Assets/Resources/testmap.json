@@ -19,7 +19,7 @@
                 {
                  "height":0,
                  "id":1,
-                 "name":"Enemy",
+                 "name":"Player1_start",
                  "properties":
                     {
 
@@ -28,8 +28,8 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":372,
-                 "y":50
+                 "x":941,
+                 "y":81
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -44,7 +44,7 @@
     {
 
     },
- "renderorder":"right-up",
+ "renderorder":"right-down",
  "tileheight":32,
  "tilesets":[
         {
