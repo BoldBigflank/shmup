@@ -37,11 +37,11 @@ public class MoverShooterScript : MonoBehaviour {
 		grownScale.y = 1.0F;
 		
 		// Translate pitch to Z value for now
-		int dominantPitchIndex = 0;
-		List<JSONObject> pitches = segment.GetField ("pitches").list;
-		for(int j = 1; j < pitches.Count; j++){
-			if(pitches[j].n < pitches[j-1].n) dominantPitchIndex = j;
-		}
+//		int dominantPitchIndex = 0;
+//		List<JSONObject> pitches = segment.GetField ("pitches").list;
+//		for(int j = 1; j < pitches.Count; j++){
+//			if(pitches[j].n < pitches[j-1].n) dominantPitchIndex = j;
+//		}
 		transform.position = new Vector3(Random.Range (-21, 21), 0.0F, Random.Range (-16, 16));
 	}
 	

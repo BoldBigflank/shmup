@@ -32,7 +32,7 @@ public class DotScript : MonoBehaviour {
 	}
 	
 	void OnCollisionEnter2D(Collision2D other){
-		Debug.Log ("onCollision");
+//		Debug.Log ("onCollision");
 		if(other.gameObject == source) return;
 		
 //		CancelInvoke();

@@ -8,12 +8,12 @@ public class GameControllerScript : MonoBehaviour {
 
 	public GameObject[] enemies;
 	
-	List<GameObject> enemyPool;
+//	List<GameObject> enemyPool;
 	
 	// Use this for initialization
 	void Start () {
 		gameTime = 0.0F;
-		enemyPool = new List<GameObject>();
+//		enemyPool = new List<GameObject>();
 	
 		// Load the song beats in
 		JSONObject j = new JSONObject(songData.ToString());
@@ -30,7 +30,8 @@ public class GameControllerScript : MonoBehaviour {
 		foreach(JSONObject segment in segments){
 			// Instantiate an object
 			GameObject o = NewObjectPoolerScript.current.GetPooledObject();
-			//o.SendMessage("SetData", segment);
+			Debug.Log (segment);
+//			o.SendMessage("SetData", segment);
 			
 			o.SetActive(true);
 			// Give its start time

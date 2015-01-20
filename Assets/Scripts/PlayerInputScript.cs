@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PlayerInputScript : MonoBehaviour {
 	public float baseSpeed = 7.0F;
-	float inputDeadSquare = 0.13F * 0.13F;
+//	float inputDeadSquare = 0.13F * 0.13F;
 	bool isFiring;
 	Vector2 newPos;
 	
