@@ -31,9 +31,7 @@ public class LevelBuilderScript : MonoBehaviour {
 		List<JSONObject> layers = j.GetField("layers").list;
 		
 		foreach(JSONObject layer in layers){
-			Debug.Log(layer.GetField ("name").ToString ());
 			if(layer.GetField ("name").str.Equals("Map")){
-				Debug.Log ("Found Map");
 				int numTilesX = (int)layer.GetField("width").n;
 				
 				// Place each object in data
@@ -44,13 +42,12 @@ public class LevelBuilderScript : MonoBehaviour {
 					if(dataInt < 0 || dataInt > levelObjects.Length) continue;
 					
 					int xTileCoord = (i % numTilesX);
-					int yTileCoord = (( data.Count - i ) / numTilesX);
-					Debug.Log ("Creating " + dataInt + " at (" + xTileCoord.ToString () + ", " + yTileCoord.ToString () + ")");
+					int yTileCoord = (( data.Count - i - 1 ) / numTilesX);
 					GameObject o = (GameObject)Instantiate(levelObjects[dataInt]);
 					o.transform.position = TileToScene (xTileCoord, yTileCoord, 0);
 					o.transform.parent = levelGameObject.transform;
 				}
-			} else if ( layer.GetField ("name").str.Equals("Treasure") ){
+			} else if ( layer.GetField ("name").str.Equals("Objects") ){
 				
 			} else {
 				Debug.Log ("No Match" + layer.GetField("name").ToString());
