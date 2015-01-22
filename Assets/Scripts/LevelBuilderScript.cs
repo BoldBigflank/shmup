@@ -13,6 +13,7 @@ public class LevelBuilderScript : MonoBehaviour {
 	// Take a json map file, create the level from the map
 	public GameObject[] levelObjects;
 	public GameObject[] enemyObjects;
+	public GameObject exitObject;
 	GameObject levelGameObject;
 	GameObject player1;
 	
@@ -65,7 +66,6 @@ public class LevelBuilderScript : MonoBehaviour {
 		List<JSONObject> data = map.GetField("data").list;
 		for(int i = 0; i < data.Count; i++){
 			int dataInt = (int)data[i].n-1;
-			Debug.Log ("dataInt" + data[i].n);
 			if(dataInt < 0 || dataInt > levelObjects.Length) continue;
 			
 			int xTileCoord = (i % numTilesX);
@@ -90,21 +90,33 @@ public class LevelBuilderScript : MonoBehaviour {
 			Debug.Log ("player1_start not found");
 		}
 		
+		// Get the enemies
 		List<JSONObject> enemies = GetJSONObjectsWithType(objects, "Enemy");
-		Debug.Log ("Found enemies:"+ enemies.Count );
 		foreach(JSONObject enemy in enemies){
 			 GameObject o = (GameObject)Instantiate (enemyObjects[0]);
 			 SetObjectTransform(o, enemy);
 		}
 		
+		// Get the exit
+		JSONObject exit = GetJSONObjectWithName(objects, "Exit");
+		GameObject e = (GameObject)Instantiate (exitObject);
+		
+		SetObjectTransform (e, exit);
+		
 	}
 	
 	void SetObjectTransform(GameObject g, JSONObject j){
 		// If object has a rigidbody
-		Vector2 pos = CoordToScene(new Vector2(j.GetField("x").n , j.GetField ("y").n ));
+		Vector2 coordSize = new Vector2(j.GetField ("width").n, j.GetField ("height").n);
+		Vector2 pos = CoordToScene(new Vector2(j.GetField("x").n , j.GetField ("y").n ), coordSize);
+		
 		// Tiled's rotation starts at (0,1) and moves clockwise
 		// Unity's rotation starts at (1,0) and moves counter
 		float rot = -270.0F - j.GetField("rotation").n;
+		
+		if(!coordSize.Equals (Vector2.zero)){
+			g.transform.localScale = new Vector3(coordSize.x, coordSize.y, tileWidth) / tileWidth;
+		}
 		if(g.rigidbody2D != null){
 			g.rigidbody2D.position = pos;
 			g.rigidbody2D.rotation = rot;
@@ -112,6 +124,7 @@ public class LevelBuilderScript : MonoBehaviour {
 			g.transform.position = new Vector3(pos.x, pos.y);
 			g.transform.rotation = Quaternion.Euler(0.0F, 0.0F, rot);
 		}
+
 		
 	}
 	
@@ -132,19 +145,18 @@ public class LevelBuilderScript : MonoBehaviour {
 		return results;
 	}
 	
-	Vector2 CoordToScene(Vector2 coord){
+	Vector2 CoordToScene(Vector2 coord, Vector2 size){
 		// Coords start at top left corner
 		Vector2 tileCoord = coord / tileWidth;
-		return TileToScene (tileCoord.x, tileCoord.y, false);
+		return TileToScene (tileCoord.x, tileCoord.y, size/tileWidth);
 	}
 	
 	Vector2 TileToScene(float xCoord, float yCoord){
-		return TileToScene (xCoord, yCoord, true);
+		return TileToScene (xCoord, yCoord, Vector2.one);
 	}
 	
-	Vector2 TileToScene(float xCoord, float yCoord, bool halfOffset){
-		Vector2 tileOffset = (halfOffset) ? new Vector2(0.5F, -0.5F) : Vector2.zero;
-		return new Vector2(xCoord - 16.0F, 12.0F - yCoord) + tileOffset;
+	Vector2 TileToScene(float xCoord, float yCoord, Vector2 size){
+		return new Vector2(xCoord - 16.0F + size.x/2.0F, 12.0F - (yCoord + size.y/2) );
 	}
 	
 	

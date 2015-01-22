@@ -35,6 +35,11 @@ public class DotScript : MonoBehaviour {
 //		Debug.Log ("onCollision");
 		if(other.gameObject == source) return;
 		
+		if(other.gameObject.CompareTag("Enemy")){
+			Debug.Log ("Bullet hit ");
+			other.gameObject.SetActive(false);
+		}
+		
 		CancelInvoke();
 		gameObject.SetActive(false);
 		
