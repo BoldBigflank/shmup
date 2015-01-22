@@ -12,6 +12,7 @@ public class LevelBuilderScript : MonoBehaviour {
 
 	// Take a json map file, create the level from the map
 	public GameObject[] levelObjects;
+	public GameObject[] enemyObjects;
 	GameObject levelGameObject;
 	GameObject player1;
 	
@@ -84,11 +85,32 @@ public class LevelBuilderScript : MonoBehaviour {
 		// Get Player1_start
 		JSONObject player1_start = GetJSONObjectWithName(objects, "Player1_start");
 		if(player1_start != null){
-			Debug.Log("player1_start" + player1_start);
-			player1.rigidbody2D.position = CoordToScene(new Vector2(player1_start.GetField("x").n , player1_start.GetField ("y").n ));
-			player1.rigidbody2D.rotation = player1_start.GetField("rotation").n;
+			SetObjectTransform(player1, player1_start);
 		} else {
 			Debug.Log ("player1_start not found");
+		}
+		
+		List<JSONObject> enemies = GetJSONObjectsWithType(objects, "Enemy");
+		Debug.Log ("Found enemies:"+ enemies.Count );
+		foreach(JSONObject enemy in enemies){
+			 GameObject o = (GameObject)Instantiate (enemyObjects[0]);
+			 SetObjectTransform(o, enemy);
+		}
+		
+	}
+	
+	void SetObjectTransform(GameObject g, JSONObject j){
+		// If object has a rigidbody
+		Vector2 pos = CoordToScene(new Vector2(j.GetField("x").n , j.GetField ("y").n ));
+		// Tiled's rotation starts at (0,1) and moves clockwise
+		// Unity's rotation starts at (1,0) and moves counter
+		float rot = -270.0F - j.GetField("rotation").n;
+		if(g.rigidbody2D != null){
+			g.rigidbody2D.position = pos;
+			g.rigidbody2D.rotation = rot;
+		} else {
+			g.transform.position = new Vector3(pos.x, pos.y);
+			g.transform.rotation = Quaternion.Euler(0.0F, 0.0F, rot);
 		}
 		
 	}
@@ -100,15 +122,31 @@ public class LevelBuilderScript : MonoBehaviour {
 		return null;
 	}
 	
+	List<JSONObject> GetJSONObjectsWithType(List<JSONObject> objects, string type){
+		List<JSONObject> results = new List<JSONObject>();
+		foreach(JSONObject o in objects){
+			if(o.GetField ("type").str.Equals(type)){
+				results.Add(o);
+			}
+		}
+		return results;
+	}
+	
 	Vector2 CoordToScene(Vector2 coord){
 		// Coords start at top left corner
 		Vector2 tileCoord = coord / tileWidth;
-		return TileToScene (tileCoord.x, tileCoord.y);
+		return TileToScene (tileCoord.x, tileCoord.y, false);
 	}
 	
 	Vector2 TileToScene(float xCoord, float yCoord){
-		return new Vector2(xCoord - 15.5F, 11.5F - yCoord);
+		return TileToScene (xCoord, yCoord, true);
 	}
+	
+	Vector2 TileToScene(float xCoord, float yCoord, bool halfOffset){
+		Vector2 tileOffset = (halfOffset) ? new Vector2(0.5F, -0.5F) : Vector2.zero;
+		return new Vector2(xCoord - 16.0F, 12.0F - yCoord) + tileOffset;
+	}
+	
 	
 //	// Update is called once per frame
 //	void Update () {

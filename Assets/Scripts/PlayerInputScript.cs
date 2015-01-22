@@ -41,7 +41,7 @@ public class PlayerInputScript : MonoBehaviour {
 		direction.y += yAxis * baseSpeed;
 		float playerAngle = Vector3.Angle(Vector3.right, direction);
 		if( direction.y < 0.0F ) playerAngle = 360.0F - playerAngle;
-		rigidbody2D.MoveRotation(playerAngle);
+		if( direction.magnitude > 0.3F ) rigidbody2D.MoveRotation(playerAngle);
 //		transform.rotation = Quaternion.AngleAxis(playerAngle, Vector3.forward);
 	
 		rigidbody2D.MovePosition( rigidbody2D.position + direction * Time.deltaTime );
