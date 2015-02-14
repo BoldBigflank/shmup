@@ -4,13 +4,14 @@ using System.Collections;
 public class DotScript : MonoBehaviour {
 	public float speed = 15.0F;
 	public GameObject source;
+	public float life = 2.0F;
 	// Use this for initialization
 	void Start () {
 	
 	}
 	
 	void OnEnable(){
-		Invoke ("Destroy", 2.0F);
+		if(life > 0.0F) Invoke ("Destroy", life);
 		rigidbody2D.AddRelativeForce(Vector2.up * speed, ForceMode2D.Impulse);
 	}
 	

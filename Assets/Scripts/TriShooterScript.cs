@@ -30,6 +30,7 @@ public class TriShooterScript : MonoBehaviour {
 		dot.transform.rotation = transform.rotation;
 		dot.transform.Rotate(Vector3.back, 90.0F);
 		dot.GetComponent<DotScript>().source = gameObject;
+		dot.GetComponent<DotScript>().life = 0.15F;
 		dot.SetActive(true);
 		
 		GameObject leftDot = NewObjectPoolerScript.current.GetPooledObject();
@@ -38,6 +39,7 @@ public class TriShooterScript : MonoBehaviour {
 		leftDot.transform.rotation = transform.rotation;
 		leftDot.transform.Rotate(Vector3.back, 70.0F);
 		leftDot.GetComponent<DotScript>().source = gameObject;
+		leftDot.GetComponent<DotScript>().life = 0.15F;
 		leftDot.SetActive(true);
 		
 		GameObject rightDot = NewObjectPoolerScript.current.GetPooledObject();
@@ -46,7 +48,7 @@ public class TriShooterScript : MonoBehaviour {
 		rightDot.transform.rotation = transform.rotation;
 		rightDot.transform.Rotate(Vector3.back, 110.0F);
 		rightDot.GetComponent<DotScript>().source = gameObject;
-		
+		rightDot.GetComponent<DotScript>().life = 0.15F;
 		rightDot.SetActive(true);
 		
 		fireCooldown = fireTime;
