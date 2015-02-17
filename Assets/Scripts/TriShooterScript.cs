@@ -22,9 +22,7 @@ public class TriShooterScript : MonoBehaviour {
 	}
 	
 	void Fire () {
-		Vector3 rot = transform.rotation.eulerAngles;
-
-		GameObject dot = NewObjectPoolerScript.current.GetPooledObject();
+		GameObject dot = NewObjectPoolerScript.current.Spawn("Dot");
 		if(!dot) return;
 		dot.transform.position = transform.position;
 		dot.transform.rotation = transform.rotation;
@@ -33,7 +31,7 @@ public class TriShooterScript : MonoBehaviour {
 		dot.GetComponent<DotScript>().life = 0.15F;
 		dot.SetActive(true);
 		
-		GameObject leftDot = NewObjectPoolerScript.current.GetPooledObject();
+		GameObject leftDot = NewObjectPoolerScript.current.Spawn("Dot");
 		if(!leftDot) return;
 		leftDot.transform.position = transform.position;
 		leftDot.transform.rotation = transform.rotation;
@@ -42,7 +40,7 @@ public class TriShooterScript : MonoBehaviour {
 		leftDot.GetComponent<DotScript>().life = 0.15F;
 		leftDot.SetActive(true);
 		
-		GameObject rightDot = NewObjectPoolerScript.current.GetPooledObject();
+		GameObject rightDot = NewObjectPoolerScript.current.Spawn("Dot");
 		if(!rightDot) return;
 		rightDot.transform.position = transform.position;
 		rightDot.transform.rotation = transform.rotation;

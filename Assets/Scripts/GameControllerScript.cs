@@ -29,7 +29,7 @@ public class GameControllerScript : MonoBehaviour {
 		// We're gonna load all the objects now!
 		foreach(JSONObject segment in segments){
 			// Instantiate an object
-			GameObject o = NewObjectPoolerScript.current.GetPooledObject();
+			GameObject o = NewObjectPoolerScript.current.Spawn("Dot");
 			Debug.Log (segment);
 //			o.SendMessage("SetData", segment);
 			

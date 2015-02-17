@@ -22,7 +22,7 @@ public class ShooterScript : MonoBehaviour {
 	}
 	
 	void Fire () {
-		GameObject dot = NewObjectPoolerScript.current.GetPooledObject();
+		GameObject dot = NewObjectPoolerScript.current.Spawn("Dot");
 		if(!dot) return;
 		dot.transform.position = transform.position;
 		dot.transform.rotation = transform.rotation;
