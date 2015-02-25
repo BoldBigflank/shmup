@@ -4,12 +4,14 @@ using System.Collections;
 public class ShooterScript : MonoBehaviour {
 	public float fireTime = 0.05F;
 	float fireCooldown;
-	
+	public string projectile;
+
+	[SerializeField]
 	PlayerInputScript playerInputScript;
 	
 	// Use this for initialization
 	void Start () {
-		playerInputScript = gameObject.GetComponent<PlayerInputScript>();
+//		playerInputScript = gameObject.GetComponent<PlayerInputScript>();
 		fireCooldown = fireTime;
 	}
 	
@@ -22,7 +24,7 @@ public class ShooterScript : MonoBehaviour {
 	}
 	
 	void Fire () {
-		GameObject dot = NewObjectPoolerScript.current.Spawn("Dot");
+		GameObject dot = NewObjectPoolerScript.current.Spawn(projectile);
 		if(!dot) return;
 		dot.transform.position = transform.position;
 		dot.transform.rotation = transform.rotation;

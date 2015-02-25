@@ -6,9 +6,15 @@ public class PlayerInputScript : MonoBehaviour {
 //	float inputDeadSquare = 0.13F * 0.13F;
 	bool isFiring;
 	Vector2 newPos;
+	string playerNumber = "1";
 	
 	void Start () {
-	
+
+	}
+
+	// Called by the TMX file at startup
+	public void SetPlayerNumber(string i){
+		playerNumber = i;
 	}
 	
 	void OnCollisionEnter (Collision collision){
@@ -30,11 +36,11 @@ public class PlayerInputScript : MonoBehaviour {
 	}
 		
 	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
 		
 		// Movement
-		float xAxis = Input.GetAxis ("Player1_MoveX");
-		float yAxis = Input.GetAxis ("Player1_MoveY");
+		float xAxis = Input.GetAxis ("Player" + playerNumber + "_MoveX");
+		float yAxis = Input.GetAxis ("Player" + playerNumber + "_MoveY");
 		Vector2 direction = Vector2.zero;
 		
 		direction.x += xAxis * baseSpeed;
@@ -55,16 +61,33 @@ public class PlayerInputScript : MonoBehaviour {
 //		transform.position = pos;
 		
 		// Aiming
-		float playerAimX = Input.GetAxis("Player1_AimX");
-		float playerAimY = Input.GetAxis("Player1_AimY");
+		float playerAimX = Input.GetAxis("Player" + playerNumber + "_AimX");
+		float playerAimY = Input.GetAxis("Player" + playerNumber + "_AimY");
 		Vector3 aimAngleVector = new Vector3(playerAimX, playerAimY, 0.0F);
 		float aimAngle = Vector3.Angle(Vector3.right, aimAngleVector);
 		if( aimAngleVector.y < 0.0F ) aimAngle = 360.0F - aimAngle;
 		if(aimAngleVector.magnitude > 0.0F)rigidbody2D.MoveRotation(aimAngle);
 		
 		// Firing
-		isFiring = (Input.GetAxis ("Player1_Fire") > 0.1F);
-		
+		isFiring = (Input.GetAxis ("Player" + playerNumber + "_Fire") > 0.1F);
+
+		if(Input.GetButtonDown("Player" + playerNumber + "_A")){
+			Debug.Log ("Player" + playerNumber + "_A");
+			gameObject.SendMessage("ReceivedInput", "A");
+		}
+		if(Input.GetButtonDown("Player" + playerNumber + "_B")){
+			Debug.Log ("Player" + playerNumber + "_B");
+			gameObject.SendMessage("ReceivedInput", "B");
+		}
+		if(Input.GetButtonDown("Player" + playerNumber + "_X")){
+			Debug.Log ("Player" + playerNumber + "_X");
+			gameObject.SendMessage("ReceivedInput", "X");
+		}
+		if(Input.GetButtonDown("Player" + playerNumber + "_Y")){
+			Debug.Log ("Player" + playerNumber + "_Y");
+			gameObject.SendMessage("ReceivedInput", "Y");
+		}
+
 	}
 	
 	public bool getIsFiring(){
