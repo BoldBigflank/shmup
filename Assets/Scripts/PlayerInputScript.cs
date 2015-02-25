@@ -93,4 +93,6 @@ public class PlayerInputScript : MonoBehaviour {
 	public bool getIsFiring(){
 		return isFiring;
 	}
+
+
 }
