@@ -20,6 +20,7 @@ public class HolsterScript : MonoBehaviour {
 
 	// Receive input from the PlayerInputScript
 	void ReceivedInput(string button){
+        // This should only happen when a game is in session
 		if(button=="Y") nextWeapon ();
 	}
 

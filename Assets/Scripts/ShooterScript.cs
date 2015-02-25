@@ -29,9 +29,10 @@ public class ShooterScript : MonoBehaviour {
 		dot.transform.position = transform.position;
 		dot.transform.rotation = transform.rotation;
 		dot.transform.Rotate(Vector3.back, 90.0F);
-		dot.GetComponent<DotScript>().source = gameObject;
+		dot.GetComponent<DotScript>().source = gameObject.transform.parent.gameObject;
 		
 		dot.SetActive(true);
+        Physics2D.IgnoreCollision(dot.collider2D, gameObject.transform.parent.gameObject.collider2D);
 		fireCooldown = fireTime;
 	}
 }
