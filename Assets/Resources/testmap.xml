@@ -6165,44 +6165,223 @@
     <property name="sorting layer name" value="Player"/>
    </properties>
   </object>
-  <object id="51" x="800" y="512" width="64" height="288"/>
-  <object id="52" x="416" y="352" width="96" height="256"/>
-  <object id="54" x="512" y="416" width="96" height="64"/>
-  <object id="55" x="736" y="736" width="64" height="352"/>
+  <object id="51" x="800" y="512" width="64" height="288">
+   <properties>
+    <property name="layer name" value="Foreground"/>
+    <property name="sorting layer name" value="Foreground"/>
+   </properties>
+  </object>
+  <object id="52" x="416" y="352" width="96" height="256">
+   <properties>
+    <property name="layer name" value="Foreground"/>
+    <property name="sorting layer name" value="Foreground"/>
+   </properties>
+  </object>
+  <object id="54" x="512" y="416" width="96" height="64">
+   <properties>
+    <property name="layer name" value="Foreground"/>
+    <property name="sorting layer name" value="Foreground"/>
+   </properties>
+  </object>
+  <object id="55" x="736" y="736" width="64" height="352">
+   <properties>
+    <property name="layer name" value="Foreground"/>
+    <property name="sorting layer name" value="Foreground"/>
+   </properties>
+  </object>
   <object id="60" x="1184" y="544">
+   <properties>
+    <property name="layer name" value="Foreground"/>
+    <property name="sorting layer name" value="Foreground"/>
+   </properties>
    <polygon points="0,0 96,0 416,320 416,352 320,352 0,32"/>
   </object>
-  <object id="63" x="0" y="0" width="2048" height="32"/>
-  <object id="64" x="0" y="0" width="32" height="1536"/>
-  <object id="65" x="0" y="1504" width="2048" height="32"/>
-  <object id="67" x="2016" y="0" width="32" height="1504"/>
-  <object id="68" x="256" y="32" width="1536" height="64"/>
-  <object id="69" x="256" y="96" width="512" height="64"/>
-  <object id="70" x="320" y="160" width="448" height="32"/>
-  <object id="71" x="416" y="192" width="416" height="32"/>
-  <object id="72" x="512" y="224" width="224" height="32"/>
-  <object id="75" x="768" y="128" width="64" height="32"/>
-  <object id="76" x="1120" y="96" width="672" height="32"/>
-  <object id="77" x="1184" y="128" width="608" height="32"/>
-  <object id="78" x="1248" y="160" width="480" height="32"/>
-  <object id="79" x="1312" y="192" width="352" height="32"/>
-  <object id="80" x="1920" y="256" width="96" height="32"/>
-  <object id="81" x="1536" y="416" width="192" height="96"/>
-  <object id="82" x="1504" y="992" width="128" height="32"/>
-  <object id="83" x="1568" y="1024" width="64" height="96"/>
-  <object id="84" x="1632" y="1088" width="160" height="32"/>
-  <object id="85" x="1952" y="1472" width="64" height="32"/>
-  <object id="86" x="32" y="224" width="96" height="1280"/>
-  <object id="87" x="128" y="768" width="256" height="64"/>
-  <object id="88" x="128" y="832" width="128" height="64"/>
-  <object id="89" x="960" y="896" width="224" height="160"/>
-  <object id="90" x="576" y="1312" width="352" height="192"/>
-  <object id="91" x="864" y="1248" width="64" height="64"/>
-  <object id="92" x="1120" y="1376" width="768" height="128"/>
-  <object id="93" x="1120" y="1248" width="64" height="32"/>
-  <object id="94" x="1120" y="1280" width="160" height="96"/>
-  <object id="95" x="1280" y="1312" width="96" height="32"/>
-  <object id="96" x="1280" y="1344" width="256" height="32"/>
+  <object id="63" type="Collider" x="0" y="0" width="2048" height="32">
+   <properties>
+    <property name="layer name" value="Foreground"/>
+    <property name="sorting layer name" value="Foreground"/>
+   </properties>
+  </object>
+  <object id="64" x="0" y="0" width="32" height="1536">
+   <properties>
+    <property name="layer name" value="Foreground"/>
+    <property name="sorting layer name" value="Foreground"/>
+   </properties>
+  </object>
+  <object id="65" x="0" y="1504" width="2048" height="32">
+   <properties>
+    <property name="layer name" value="Foreground"/>
+    <property name="sorting layer name" value="Foreground"/>
+   </properties>
+  </object>
+  <object id="67" x="2016" y="0" width="32" height="1504">
+   <properties>
+    <property name="layer name" value="Foreground"/>
+    <property name="sorting layer name" value="Foreground"/>
+   </properties>
+  </object>
+  <object id="68" type="Collider" x="256" y="32" width="1536" height="64">
+   <properties>
+    <property name="layer name" value="Foreground"/>
+    <property name="sorting layer name" value="Foreground"/>
+   </properties>
+  </object>
+  <object id="69" type="Collider" x="256" y="96" width="512" height="64">
+   <properties>
+    <property name="layer name" value="Foreground"/>
+    <property name="sorting layer name" value="Foreground"/>
+   </properties>
+  </object>
+  <object id="70" type="Collider" x="320" y="160" width="448" height="32">
+   <properties>
+    <property name="layer name" value="Foreground"/>
+    <property name="sorting layer name" value="Foreground"/>
+   </properties>
+  </object>
+  <object id="71" type="Collider" x="416" y="192" width="416" height="32">
+   <properties>
+    <property name="layer name" value="Foreground"/>
+    <property name="sorting layer name" value="Foreground"/>
+   </properties>
+  </object>
+  <object id="72" type="Collider" x="512" y="224" width="224" height="32">
+   <properties>
+    <property name="layer name" value="Foreground"/>
+    <property name="sorting layer name" value="Foreground"/>
+   </properties>
+  </object>
+  <object id="75" type="Collider" x="768" y="128" width="64" height="32">
+   <properties>
+    <property name="layer name" value="Foreground"/>
+    <property name="sorting layer name" value="Foreground"/>
+   </properties>
+  </object>
+  <object id="76" type="Collider" x="1120" y="96" width="672" height="32">
+   <properties>
+    <property name="layer name" value="Foreground"/>
+    <property name="sorting layer name" value="Foreground"/>
+   </properties>
+  </object>
+  <object id="77" type="Collider" x="1184" y="128" width="608" height="32">
+   <properties>
+    <property name="layer name" value="Foreground"/>
+    <property name="sorting layer name" value="Foreground"/>
+   </properties>
+  </object>
+  <object id="78" type="Collider" x="1248" y="160" width="480" height="32">
+   <properties>
+    <property name="layer name" value="Foreground"/>
+    <property name="sorting layer name" value="Foreground"/>
+   </properties>
+  </object>
+  <object id="79" type="Collider" x="1312" y="192" width="352" height="32">
+   <properties>
+    <property name="layer name" value="Foreground"/>
+    <property name="sorting layer name" value="Foreground"/>
+   </properties>
+  </object>
+  <object id="80" x="1920" y="256" width="96" height="32">
+   <properties>
+    <property name="layer name" value="Foreground"/>
+    <property name="sorting layer name" value="Foreground"/>
+   </properties>
+  </object>
+  <object id="81" x="1536" y="416" width="192" height="96">
+   <properties>
+    <property name="layer name" value="Foreground"/>
+    <property name="sorting layer name" value="Foreground"/>
+   </properties>
+  </object>
+  <object id="82" x="1504" y="992" width="128" height="32">
+   <properties>
+    <property name="layer name" value="Foreground"/>
+    <property name="sorting layer name" value="Foreground"/>
+   </properties>
+  </object>
+  <object id="83" x="1568" y="1024" width="64" height="96">
+   <properties>
+    <property name="layer name" value="Foreground"/>
+    <property name="sorting layer name" value="Foreground"/>
+   </properties>
+  </object>
+  <object id="84" x="1632" y="1088" width="160" height="32">
+   <properties>
+    <property name="layer name" value="Foreground"/>
+    <property name="sorting layer name" value="Foreground"/>
+   </properties>
+  </object>
+  <object id="85" x="1952" y="1472" width="64" height="32">
+   <properties>
+    <property name="layer name" value="Foreground"/>
+    <property name="sorting layer name" value="Foreground"/>
+   </properties>
+  </object>
+  <object id="86" x="32" y="224" width="96" height="1280">
+   <properties>
+    <property name="layer name" value="Foreground"/>
+    <property name="sorting layer name" value="Foreground"/>
+   </properties>
+  </object>
+  <object id="87" x="128" y="768" width="256" height="64">
+   <properties>
+    <property name="layer name" value="Foreground"/>
+    <property name="sorting layer name" value="Foreground"/>
+   </properties>
+  </object>
+  <object id="88" x="128" y="832" width="128" height="64">
+   <properties>
+    <property name="layer name" value="Foreground"/>
+    <property name="sorting layer name" value="Foreground"/>
+   </properties>
+  </object>
+  <object id="89" x="960" y="896" width="224" height="160">
+   <properties>
+    <property name="layer name" value="Foreground"/>
+    <property name="sorting layer name" value="Foreground"/>
+   </properties>
+  </object>
+  <object id="90" x="576" y="1312" width="352" height="192">
+   <properties>
+    <property name="layer name" value="Foreground"/>
+    <property name="sorting layer name" value="Foreground"/>
+   </properties>
+  </object>
+  <object id="91" x="864" y="1248" width="64" height="64">
+   <properties>
+    <property name="layer name" value="Foreground"/>
+    <property name="sorting layer name" value="Foreground"/>
+   </properties>
+  </object>
+  <object id="92" x="1120" y="1376" width="768" height="128">
+   <properties>
+    <property name="layer name" value="Foreground"/>
+    <property name="sorting layer name" value="Foreground"/>
+   </properties>
+  </object>
+  <object id="93" x="1120" y="1248" width="64" height="32">
+   <properties>
+    <property name="layer name" value="Foreground"/>
+    <property name="sorting layer name" value="Foreground"/>
+   </properties>
+  </object>
+  <object id="94" x="1120" y="1280" width="160" height="96">
+   <properties>
+    <property name="layer name" value="Foreground"/>
+    <property name="sorting layer name" value="Foreground"/>
+   </properties>
+  </object>
+  <object id="95" x="1280" y="1312" width="96" height="32">
+   <properties>
+    <property name="layer name" value="Foreground"/>
+    <property name="sorting layer name" value="Foreground"/>
+   </properties>
+  </object>
+  <object id="96" x="1280" y="1344" width="256" height="32">
+   <properties>
+    <property name="layer name" value="Foreground"/>
+    <property name="sorting layer name" value="Foreground"/>
+   </properties>
+  </object>
   <object id="97" name="Player2_start" type="NoCollider" x="1914" y="114" rotation="180">
    <properties>
     <property name="0-prefab" value="Player"/>
