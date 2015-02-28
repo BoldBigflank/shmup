@@ -10,7 +10,12 @@ public class EnemyScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+	    
+
+        // Cast a ray at every Player
+
+        // If visible, go forward and turn toward the last place we saw them
+
 	}
 	
 	void OnCollisionEnter2D(Collision2D other){
