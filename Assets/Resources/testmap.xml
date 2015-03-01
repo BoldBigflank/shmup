@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="64" height="48" tilewidth="32" tileheight="32" backgroundcolor="#808080" nextobjectid="99">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="64" height="48" tilewidth="32" tileheight="32" backgroundcolor="#808080" nextobjectid="110">
  <tileset firstgid="1" name="Default" tilewidth="32" tileheight="32">
   <image source="tilemap.png" trans="ff00ff" width="128" height="128"/>
  </tileset>
@@ -6392,6 +6392,94 @@
    </properties>
   </object>
   <object id="98" name="Enemy" type="NoCollider" x="1274" y="338" rotation="180">
+   <properties>
+    <property name="0-prefab" value="Enemy"/>
+    <property name="0-prefab path" value="Prefabs/"/>
+    <property name="0-prefab z depth" value="1"/>
+    <property name="sorting layer name" value="Foreground"/>
+   </properties>
+  </object>
+  <object id="99" name="Enemy" type="NoCollider" x="954" y="434" rotation="180">
+   <properties>
+    <property name="0-prefab" value="Enemy"/>
+    <property name="0-prefab path" value="Prefabs/"/>
+    <property name="0-prefab z depth" value="1"/>
+    <property name="sorting layer name" value="Foreground"/>
+   </properties>
+  </object>
+  <object id="100" name="Enemy" type="NoCollider" x="1082" y="722" rotation="180">
+   <properties>
+    <property name="0-prefab" value="Enemy"/>
+    <property name="0-prefab path" value="Prefabs/"/>
+    <property name="0-prefab z depth" value="1"/>
+    <property name="sorting layer name" value="Foreground"/>
+   </properties>
+  </object>
+  <object id="101" name="Enemy" type="NoCollider" x="1306" y="882" rotation="180">
+   <properties>
+    <property name="0-prefab" value="Enemy"/>
+    <property name="0-prefab path" value="Prefabs/"/>
+    <property name="0-prefab z depth" value="1"/>
+    <property name="sorting layer name" value="Foreground"/>
+   </properties>
+  </object>
+  <object id="102" name="Enemy" type="NoCollider" x="1786" y="786" rotation="180">
+   <properties>
+    <property name="0-prefab" value="Enemy"/>
+    <property name="0-prefab path" value="Prefabs/"/>
+    <property name="0-prefab z depth" value="1"/>
+    <property name="sorting layer name" value="Foreground"/>
+   </properties>
+  </object>
+  <object id="103" name="Enemy" type="NoCollider" x="1946" y="1074" rotation="180">
+   <properties>
+    <property name="0-prefab" value="Enemy"/>
+    <property name="0-prefab path" value="Prefabs/"/>
+    <property name="0-prefab z depth" value="1"/>
+    <property name="sorting layer name" value="Foreground"/>
+   </properties>
+  </object>
+  <object id="104" name="Enemy" type="NoCollider" x="1722" y="1266" rotation="180">
+   <properties>
+    <property name="0-prefab" value="Enemy"/>
+    <property name="0-prefab path" value="Prefabs/"/>
+    <property name="0-prefab z depth" value="1"/>
+    <property name="sorting layer name" value="Foreground"/>
+   </properties>
+  </object>
+  <object id="105" name="Enemy" type="NoCollider" x="1082" y="1074" rotation="180">
+   <properties>
+    <property name="0-prefab" value="Enemy"/>
+    <property name="0-prefab path" value="Prefabs/"/>
+    <property name="0-prefab z depth" value="1"/>
+    <property name="sorting layer name" value="Foreground"/>
+   </properties>
+  </object>
+  <object id="106" name="Enemy" type="NoCollider" x="890" y="1010" rotation="180">
+   <properties>
+    <property name="0-prefab" value="Enemy"/>
+    <property name="0-prefab path" value="Prefabs/"/>
+    <property name="0-prefab z depth" value="1"/>
+    <property name="sorting layer name" value="Foreground"/>
+   </properties>
+  </object>
+  <object id="107" name="Enemy" type="NoCollider" x="986" y="1362" rotation="180">
+   <properties>
+    <property name="0-prefab" value="Enemy"/>
+    <property name="0-prefab path" value="Prefabs/"/>
+    <property name="0-prefab z depth" value="1"/>
+    <property name="sorting layer name" value="Foreground"/>
+   </properties>
+  </object>
+  <object id="108" name="Enemy" type="NoCollider" x="218" y="946" rotation="180">
+   <properties>
+    <property name="0-prefab" value="Enemy"/>
+    <property name="0-prefab path" value="Prefabs/"/>
+    <property name="0-prefab z depth" value="1"/>
+    <property name="sorting layer name" value="Foreground"/>
+   </properties>
+  </object>
+  <object id="109" name="Enemy" type="NoCollider" x="474" y="626" rotation="180">
    <properties>
     <property name="0-prefab" value="Enemy"/>
     <property name="0-prefab path" value="Prefabs/"/>
