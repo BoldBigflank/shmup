@@ -7,6 +7,7 @@ public class CrosshairScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		player = transform.parent.gameObject;
+        Physics2D.IgnoreCollision(collider2D, player.collider2D);
 	}
 	
 	// Update is called once per frame
@@ -15,6 +16,7 @@ public class CrosshairScript : MonoBehaviour {
 		// Cast a ray
 		float distance = 3.0F;
 		int layerMask = LayerMask.NameToLayer("Foreground");
+        
 		RaycastHit2D hit = Physics2D.Raycast(player.transform.position, player.transform.TransformDirection(Vector2.right), distance*2, layerMask);
 		if (hit.collider != null) {
 			transform.position = hit.point;
