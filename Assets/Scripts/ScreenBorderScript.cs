@@ -13,7 +13,7 @@ public class ScreenBorderScript : MonoBehaviour {
 	float maxY;
 	
 	void Start() {
-		float vertExtent = Camera.main.camera.orthographicSize;
+		float vertExtent = Camera.main.GetComponent<Camera>().orthographicSize;
 		float horzExtent = vertExtent * Screen.width / Screen.height;
 		
 		Debug.Log (vertExtent + " " + horzExtent);

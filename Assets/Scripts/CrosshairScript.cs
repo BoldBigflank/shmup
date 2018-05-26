@@ -7,7 +7,7 @@ public class CrosshairScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		player = transform.parent.gameObject;
-        Physics2D.IgnoreCollision(collider2D, player.collider2D);
+        Physics2D.IgnoreCollision(GetComponent<Collider2D>(), player.GetComponent<Collider2D>());
 	}
 	
 	// Update is called once per frame

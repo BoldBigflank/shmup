@@ -12,7 +12,7 @@ public class DotScript : MonoBehaviour {
 	
 	void OnEnable(){
 		if(life > 0.0F) Invoke ("Destroy", life);
-		rigidbody2D.AddRelativeForce(Vector2.up * speed, ForceMode2D.Impulse);
+		GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.up * speed, ForceMode2D.Impulse);
 	}
 	
 	void Destroy(){

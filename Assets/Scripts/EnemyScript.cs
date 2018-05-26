@@ -46,7 +46,7 @@ public class EnemyScript : MonoBehaviour {
 
 	void GoToLastKnownPosition(){
 		// If we're close enough, return
-        if (((Vector2)transform.position - lastKnownTargetPosition).magnitude < 1.0F) { rigidbody2D.velocity = Vector2.zero; return; };
+        if (((Vector2)transform.position - lastKnownTargetPosition).magnitude < 1.0F) { GetComponent<Rigidbody2D>().velocity = Vector2.zero; return; };
         
         // Set the target angle
         Vector3 currentRotation = transform.rotation.eulerAngles;
@@ -63,9 +63,9 @@ public class EnemyScript : MonoBehaviour {
         float newAngle = currentAngle + Mathf.Min(Mathf.Abs(angleDelta), turnSpeed * Time.deltaTime) * direction;
 
         // Force the rotation
-        rigidbody2D.rotation = newAngle;
+        GetComponent<Rigidbody2D>().rotation = newAngle;
         // Move if possible
-        rigidbody2D.MovePosition(transform.position + (Vector3)(AngleToVector(newAngle) * moveSpeed * Time.deltaTime));
+        GetComponent<Rigidbody2D>().MovePosition(transform.position + (Vector3)(AngleToVector(newAngle) * moveSpeed * Time.deltaTime));
 	}
 	
 	void OnCollisionEnter2D(Collision2D other){

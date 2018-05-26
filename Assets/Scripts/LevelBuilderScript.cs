@@ -117,9 +117,9 @@ public class LevelBuilderScript : MonoBehaviour {
 		if(!coordSize.Equals (Vector2.zero)){
 			g.transform.localScale = new Vector3(coordSize.x, coordSize.y, tileWidth) / tileWidth;
 		}
-		if(g.rigidbody2D != null){
-			g.rigidbody2D.position = pos;
-			g.rigidbody2D.rotation = rot;
+		if(g.GetComponent<Rigidbody2D>() != null){
+			g.GetComponent<Rigidbody2D>().position = pos;
+			g.GetComponent<Rigidbody2D>().rotation = rot;
 		} else {
 			g.transform.position = new Vector3(pos.x, pos.y);
 			g.transform.rotation = Quaternion.Euler(0.0F, 0.0F, rot);

@@ -32,7 +32,7 @@ public class ShooterScript : MonoBehaviour {
 		dot.GetComponent<DotScript>().source = gameObject.transform.parent.gameObject;
 		
 		dot.SetActive(true);
-        Physics2D.IgnoreCollision(dot.collider2D, gameObject.transform.parent.gameObject.collider2D);
+        Physics2D.IgnoreCollision(dot.GetComponent<Collider2D>(), gameObject.transform.parent.gameObject.GetComponent<Collider2D>());
 		fireCooldown = fireTime;
 	}
 }

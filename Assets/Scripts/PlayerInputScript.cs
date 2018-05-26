@@ -47,10 +47,10 @@ public class PlayerInputScript : MonoBehaviour {
 		direction.y += yAxis * baseSpeed;
 		float playerAngle = Vector3.Angle(Vector3.right, direction);
 		if( direction.y < 0.0F ) playerAngle = 360.0F - playerAngle;
-		if( direction.magnitude > 0.3F ) rigidbody2D.MoveRotation(playerAngle);
+		if( direction.magnitude > 0.3F ) GetComponent<Rigidbody2D>().MoveRotation(playerAngle);
 //		transform.rotation = Quaternion.AngleAxis(playerAngle, Vector3.forward);
 	
-		rigidbody2D.MovePosition( rigidbody2D.position + direction * Time.deltaTime );
+		GetComponent<Rigidbody2D>().MovePosition( GetComponent<Rigidbody2D>().position + direction * Time.deltaTime );
 		//if (c != CollisionFlags.None) {
 	//		Debug.Log("Collided");
 	//	}
@@ -66,7 +66,7 @@ public class PlayerInputScript : MonoBehaviour {
 		Vector3 aimAngleVector = new Vector3(playerAimX, playerAimY, 0.0F);
 		float aimAngle = Vector3.Angle(Vector3.right, aimAngleVector);
 		if( aimAngleVector.y < 0.0F ) aimAngle = 360.0F - aimAngle;
-		if(aimAngleVector.magnitude > 0.0F)rigidbody2D.MoveRotation(aimAngle);
+		if(aimAngleVector.magnitude > 0.0F)GetComponent<Rigidbody2D>().MoveRotation(aimAngle);
 		
 		// Firing
 		isFiring = (Input.GetAxis ("Player" + playerNumber + "_Fire") > 0.1F);

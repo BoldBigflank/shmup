@@ -55,12 +55,12 @@ public class MoverShooterScript : MonoBehaviour {
 		}
 		if(localGameTime > -1.0F && localGameTime < 0.0F){
 			
-			renderer.material = shadowMaterial;
+			GetComponent<Renderer>().material = shadowMaterial;
 			transform.localScale = grownScale;
 		}
 		
 		if( localGameTime > 0.0F ){
-			renderer.material = mainMaterial;
+			GetComponent<Renderer>().material = mainMaterial;
 //			gameObject.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.green);
 			
 			// Set the size

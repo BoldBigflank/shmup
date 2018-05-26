@@ -37,12 +37,12 @@ public class GameControllerScript : MonoBehaviour {
 			// Give its start time
 			// 
 		}
-		audio.time = -10.0F;
+		GetComponent<AudioSource>().time = -10.0F;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		gameTime = audio.time;
+		gameTime = GetComponent<AudioSource>().time;
 		// Read the segments list up to one second ahead of time
 	}
 }
